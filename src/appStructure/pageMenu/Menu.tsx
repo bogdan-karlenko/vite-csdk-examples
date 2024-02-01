@@ -1,7 +1,7 @@
 import { Autocomplete, Box, Collapse, Drawer as MuiDrawer, List, ListItemButton, ListItemText, TextField, styled } from "@mui/material";
 import MenuListItem, { MenuListItemSimple } from "./MenuListItem";
 
-const hideMenu: boolean = (import.meta.env.VITE_APP_SISENSE_HIDE_MENU.toLowerCase()  == 'true' ? true : false)
+const hideMenu: boolean = (import.meta.env.VITE_APP_SISENSE_HIDE_MENU.toLowerCase() == 'true' ? true : false)
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -19,6 +19,7 @@ const PageList = () => {
     const [open, setOpen] = useState('');
     const [openAllFolders, setOpenAllFolders] = useState(false);
     const [pagesCollection, setPagesCollection] = useState(pages)
+    const [searchValues, setSearchValuess] = useState<string[]>()
     const dense = true
 
     const handleClick = (name: string) => {
@@ -37,12 +38,13 @@ const PageList = () => {
 
     const filteredPagesCollection = (searchStrings: string[]) => {
         let results: ComponentPageList[] = []
+        setSearchValuess(searchStrings)
+
         if (searchStrings.length == 0) {
             results = pages
             setOpenAllFolders(false)
         }
         else {
-
             pages.map((collection) => {
                 let sectionPages: ComponentPage[] = []
                 collection.components.map((page) => {
@@ -60,6 +62,7 @@ const PageList = () => {
             })
             setOpenAllFolders(true)
         }
+        console.log(results)
         setPagesCollection(results)
         return results
     }
@@ -134,17 +137,20 @@ const PageList = () => {
                                 size="small"
                                 options={filteredSearchResults()}
                                 sx={{ p: 0.5, pt: 1 }}
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-                                        label="Search examples"
-                                        InputProps={{
-                                            ...params.InputProps,
-                                            type: 'search'
-                                        }}
-                                    />
-                                )}
-                                onChange={(event, value) => filteredPagesCollection(value)}
+                                renderInput={(params) => {
+                                    console.log("params", params)
+                                    return (
+                                        <TextField
+                                            {...params}
+                                            label="Search examples"
+                                        />
+                                    )
+                                }}
+                                onChange={(event, value) => {
+                                    filteredPagesCollection(value)
+                                    console.log(value)
+                                }}
+                                value={searchValues}
                             />
                             <List dense={dense} sx={{ height: '100vh' }}>
                                 <MenuListItemSimple pageName={'Home'} sx={{ pl: 0, color: "inherit" }} />
