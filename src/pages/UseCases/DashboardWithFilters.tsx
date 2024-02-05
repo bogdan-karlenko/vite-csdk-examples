@@ -19,39 +19,8 @@ const CodeExample = () => {
         }) as Filter[]
 
     return (
-        <>
-            <Grid container spacing={2} rowSpacing={2}>
-                <DashboardCard title="Filters" gridColumns={12} >
-                    <Grid container alignItems="center" spacing={2}>
-                        <Grid item xs={2}>
-                            <MemberFilterTile
-                                title="Age Range"
-                                dataSource={DM.DataSource}
-                                attribute={DM.Commerce.AgeRange}
-                                filter={filterAgeRange}
-                                onChange={setFilterAgeRange}
-                            />
-                        </Grid>
-                        <Grid item xs={2}>
-                            <MemberFilterTile
-                                title="Brand"
-                                dataSource={DM.DataSource}
-                                attribute={DM.Brand.Brand}
-                                filter={filterBrand}
-                                onChange={setFilterBrand}
-                            />
-                        </Grid>
-                        <Grid item xs={2}>
-                            <MemberFilterTile
-                                title="Country"
-                                dataSource={DM.DataSource}
-                                attribute={DM.Country.Country}
-                                filter={filterCountry}
-                                onChange={setFilterCountry}
-                            />
-                        </Grid>
-                    </Grid>
-                </DashboardCard>
+        <><Grid container spacing={2} rowSpacing={2}>
+            <Grid item xs={10}><Grid container spacing={2} rowSpacing={2}>
                 <DashboardCard title="Revenue Trend" gridColumns={4} height={320}>
                     <Chart
                         dataSet={DM.DataSource}
@@ -145,6 +114,38 @@ const CodeExample = () => {
                     />
                 </DashboardCard>
             </Grid>
+            </Grid>
+            <Grid item xs={2}>
+                <Grid item xs={12}>
+                    <MemberFilterTile
+                        title="Age Range"
+                        dataSource={DM.DataSource}
+                        attribute={DM.Commerce.AgeRange}
+                        filter={filterAgeRange}
+                        onChange={setFilterAgeRange}
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <MemberFilterTile
+                        title="Brand"
+                        dataSource={DM.DataSource}
+                        attribute={DM.Brand.Brand}
+                        filter={filterBrand}
+                        onChange={setFilterBrand}
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <MemberFilterTile
+                        title="Country"
+                        dataSource={DM.DataSource}
+                        attribute={DM.Country.Country}
+                        filter={filterCountry}
+                        onChange={setFilterCountry}
+                    />
+                </Grid>
+            </Grid>
+        </Grid>
+
         </>
     )
 }

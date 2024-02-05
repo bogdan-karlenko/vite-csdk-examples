@@ -1,4 +1,4 @@
-import { FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material"
+import { Grid } from "@mui/material"
 import DashboardCard from "./CardComponents/DashboardCard"
 import { Chart, MemberFilterTile, ScattermapChart } from "@sisense/sdk-ui"
 import * as DM from '../../datamodels/sample-ecommerce'
@@ -9,8 +9,10 @@ import { useState } from "react"
 const CodeExample = () => {
 
     const [filterAgeRange, setFilterAgeRange] = useState<Filter | null>(null)
+    const [filterBrand, setFilterBrand] = useState<Filter | null>(null)
+    const [filterCountry, setFilterCountry] = useState<Filter | null>(null)
 
-    const activeFilters: Filter[] = [filterAgeRange]
+    const activeFilters: Filter[] = [filterAgeRange, filterBrand, filterCountry]
         .filter((f) => {
             // make sure no filters are undefined
             if (f) return f
@@ -22,21 +24,30 @@ const CodeExample = () => {
                 <DashboardCard title="Filters" gridColumns={12} >
                     <Grid container alignItems="center" spacing={2}>
                         <Grid item xs={2}>
-                            <FormControl fullWidth size="small">
-                                <InputLabel id="demo-simple-select-label">Age Range</InputLabel>
-                                <Select>
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </Grid>
-                        <Grid item xs={2}>
                             <MemberFilterTile
                                 title="Age Range"
+                                dataSource={DM.DataSource}
                                 attribute={DM.Commerce.AgeRange}
                                 filter={filterAgeRange}
                                 onChange={setFilterAgeRange}
+                            />
+                        </Grid>
+                        <Grid item xs={2}>
+                            <MemberFilterTile
+                                title="Brand"
+                                dataSource={DM.DataSource}
+                                attribute={DM.Brand.Brand}
+                                filter={filterBrand}
+                                onChange={setFilterBrand}
+                            />
+                        </Grid>
+                        <Grid item xs={2}>
+                            <MemberFilterTile
+                                title="Country"
+                                dataSource={DM.DataSource}
+                                attribute={DM.Country.Country}
+                                filter={filterCountry}
+                                onChange={setFilterCountry}
                             />
                         </Grid>
                     </Grid>

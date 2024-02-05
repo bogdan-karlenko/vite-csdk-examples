@@ -16,8 +16,6 @@ const Components: ComponentPageList = {
             { menuCaption: "Boxplot Chart", fileName: "BoxplotChart" },
             { menuCaption: "Column Chart", fileName: "ColumnChart" },
             { menuCaption: "Line Chart", fileName: "LineChart" },
-            { menuCaption: "ex. Page 1", fileName: "Page1" },
-            { menuCaption: "ex. Page 2", fileName: "Page2" },
         ]
 };
 
