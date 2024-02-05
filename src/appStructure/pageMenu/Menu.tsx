@@ -1,7 +1,8 @@
 import { Autocomplete, Box, Collapse, Drawer as MuiDrawer, List, ListItemButton, ListItemText, TextField, styled } from "@mui/material";
 import MenuListItem, { MenuListItemSimple } from "./MenuListItem";
 
-const hideMenu: boolean = (import.meta.env.VITE_APP_SISENSE_HIDE_MENU.toLowerCase() == 'true' ? true : false)
+// const hideMenu: boolean = (import.meta.env.VITE_APP_SISENSE_HIDE_MENU.toLowerCase() == 'true' ? true : false)
+const hideMenu: boolean = false
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -62,7 +63,6 @@ const PageList = () => {
             })
             setOpenAllFolders(true)
         }
-        console.log(results)
         setPagesCollection(results)
         return results
     }
@@ -138,7 +138,6 @@ const PageList = () => {
                                 options={filteredSearchResults()}
                                 sx={{ p: 0.5, pt: 1 }}
                                 renderInput={(params) => {
-                                    console.log("params", params)
                                     return (
                                         <TextField
                                             {...params}
@@ -148,7 +147,6 @@ const PageList = () => {
                                 }}
                                 onChange={(event, value) => {
                                     filteredPagesCollection(value)
-                                    console.log(value)
                                 }}
                                 value={searchValues}
                             />

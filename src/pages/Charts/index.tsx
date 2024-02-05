@@ -12,6 +12,7 @@ const Components: ComponentPageList = {
             { menuCaption: "Bar Chart", fileName: "BarChart" },
             { menuCaption: "Bar Chart Stacked", fileName: "BarChartStacked" },
             { menuCaption: "Bar Chart Stacked Percentage", fileName: "BarChartStacked100" },
+            { menuCaption: "Bar Chart Styled", fileName: "BarChartStyled" },
             { menuCaption: "Boxplot Chart", fileName: "BoxplotChart" },
             { menuCaption: "Column Chart", fileName: "ColumnChart" },
             { menuCaption: "Line Chart", fileName: "LineChart" },
