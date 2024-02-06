@@ -8,6 +8,7 @@ const Components: ComponentPageList = {
             { menuCaption: "Dashboard Layout", fileName: "DashboardLayout" },
             { menuCaption: "Dashboard with Filters", fileName: "DashboardWithFilters" },
             { menuCaption: "Dashboard with Filters (Top)", fileName: "DashboardWithFiltersTop" },
+            { menuCaption: "Fusion Widgets", fileName: "FusionWidgets" },
         ]
 };
 
