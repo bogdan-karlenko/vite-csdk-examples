@@ -1,18 +1,21 @@
-import { BarChart } from "@sisense/sdk-ui"
+import { PolarChart } from "@sisense/sdk-ui"
 import * as DM from '../../datamodels/sample-ecommerce'
 import { measureFactory } from "@sisense/sdk-data"
 
 const CodeExample = () => {
     return (
         <>
-            <BarChart
+            <PolarChart
                 dataSet={DM.DataSource}
                 dataOptions={{
-                    category: [DM.Commerce.Date.Years],
+                    category: [DM.Commerce.AgeRange],
                     value: [
                         measureFactory.sum(DM.Commerce.Revenue, "Total Revenue")
                     ],
-                    breakBy: [DM.Commerce.Condition]
+                    breakBy: []
+                }}
+                styleOptions={{
+                    subtype: 'polar/line'
                 }}
             />
         </>

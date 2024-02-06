@@ -1,17 +1,20 @@
-import { LineChart } from "@sisense/sdk-ui"
+import { PieChart } from "@sisense/sdk-ui"
 import * as DM from '../../datamodels/sample-ecommerce'
 import { measureFactory } from "@sisense/sdk-data"
 
 const CodeExample = () => {
     return (
         <>
-            <LineChart
+            <PieChart
                 dataSet={DM.DataSource}
                 dataOptions={{
-                    category: [DM.Commerce.Date.Quarters],
-                    value: [measureFactory.sum(DM.Commerce.Revenue,  "Total Revenue")
+                    category: [DM.Commerce.AgeRange],
+                    value: [
+                        measureFactory.sum(DM.Commerce.Revenue, "Total Revenue")
                     ],
-                    breakBy: [DM.Commerce.Condition]
+                }}
+                styleOptions={{
+                    subtype: 'pie/ring'
                 }}
             />
         </>

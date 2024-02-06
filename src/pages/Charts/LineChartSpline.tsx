@@ -9,9 +9,14 @@ const CodeExample = () => {
                 dataSet={DM.DataSource}
                 dataOptions={{
                     category: [DM.Commerce.Date.Quarters],
-                    value: [measureFactory.sum(DM.Commerce.Revenue,  "Total Revenue")
+                    value: [
+                        measureFactory.sum(DM.Commerce.Revenue, "Total Revenue")
                     ],
                     breakBy: [DM.Commerce.Condition]
+                }}
+                styleOptions={{
+                    lineWidth: {width: 'bold'},
+                    subtype: 'line/spline'
                 }}
             />
         </>

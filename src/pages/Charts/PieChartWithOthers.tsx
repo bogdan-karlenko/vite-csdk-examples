@@ -1,18 +1,25 @@
-import { BarChart } from "@sisense/sdk-ui"
+import { PieChart } from "@sisense/sdk-ui"
 import * as DM from '../../datamodels/sample-ecommerce'
 import { measureFactory } from "@sisense/sdk-data"
 
 const CodeExample = () => {
     return (
         <>
-            <BarChart
+            <PieChart
                 dataSet={DM.DataSource}
                 dataOptions={{
-                    category: [DM.Commerce.Date.Years],
+                    category: [DM.Commerce.AgeRange],
                     value: [
                         measureFactory.sum(DM.Commerce.Revenue, "Total Revenue")
                     ],
-                    breakBy: [DM.Commerce.Condition]
+                }}
+                styleOptions={{
+                    subtype: 'pie/classic',
+                    convolution: {
+                        enabled: true,
+                        selectedConvolutionType: 'bySlicesCount',
+                        independentSlicesCount: 3
+                    }
                 }}
             />
         </>

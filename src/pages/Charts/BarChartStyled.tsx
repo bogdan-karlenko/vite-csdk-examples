@@ -15,20 +15,19 @@ const CodeExample = () => {
     return (
         <>
             <Stack direction="row" spacing={4}>
-                <ToggleButtonGroup color="primary" exclusive value={chartSubType} onChange={(ev, val) => setChartSubType(val)}>
-                    <div>Chart Subtype &nbsp;</div>
+                <h5>Chart Subtype</h5>
+                <ToggleButtonGroup color="primary" size='small' exclusive value={chartSubType} onChange={(ev, val) => setChartSubType(val)}>
                     <ToggleButton value="bar/classic">bar/classic</ToggleButton>
                     <ToggleButton value="bar/stacked">bar/stacked</ToggleButton>
                     <ToggleButton value="bar/stacked100">bar/stacked100</ToggleButton>
                 </ToggleButtonGroup>
-                <ToggleButtonGroup
-                    color="primary" value={seriesLabels} exclusive onChange={(ev, val) => setSeriesLabels(Boolean(val))}>
-                    <div>Series Labels &nbsp;</div>
+                <h5>Series Labels</h5>
+                <ToggleButtonGroup color="primary" size='small' value={seriesLabels} exclusive onChange={(ev, val) => setSeriesLabels(Boolean(val))}>
                     <ToggleButton value={true}>Series labels ON</ToggleButton>
                     <ToggleButton value={false}>Series labels OFF</ToggleButton>
                 </ToggleButtonGroup>
-                <ToggleButtonGroup color="primary" exclusive value={seriesLabelsRotation.toString()} onChange={(ev, val) => setSeriesLabelsRotation(Number(val))}>
-                    <div>Series Labels Rotation &nbsp;</div>
+                <h5>Series Labels Rotation</h5>
+                <ToggleButtonGroup color="primary" size='small' exclusive value={seriesLabelsRotation.toString()} onChange={(ev, val) => setSeriesLabelsRotation(Number(val))}>
                     <ToggleButton value='0'>0</ToggleButton>
                     <ToggleButton value='20'>20</ToggleButton>
                     <ToggleButton value='45'>45</ToggleButton>
@@ -36,14 +35,13 @@ const CodeExample = () => {
             </Stack>
             <br />
             <Stack direction="row" spacing={4}>
-                <ToggleButtonGroup
-                    color="primary" value={legendEnabled} exclusive onChange={(ev, val) => setLegendEnabled(Boolean(val))}>
-                    <div>Legend &nbsp;</div>
+                <h5>Legend</h5>
+                <ToggleButtonGroup color="primary" size='small' value={legendEnabled} exclusive onChange={(ev, val) => setLegendEnabled(Boolean(val))}>
                     <ToggleButton value={true}>Legend ON</ToggleButton>
                     <ToggleButton value={false}>Legend OFF</ToggleButton>
                 </ToggleButtonGroup>
-                <ToggleButtonGroup color="primary" exclusive value={legendPosition} onChange={(ev, val) => setLegendPosition(val)}>
-                    <div>Legend position &nbsp;</div>
+                <h5>Legend position</h5>
+                <ToggleButtonGroup color="primary" size='small' exclusive value={legendPosition} onChange={(ev, val) => setLegendPosition(val)}>
                     <ToggleButton value="bottom">bottom</ToggleButton>
                     <ToggleButton value="left">left</ToggleButton>
                     <ToggleButton value="top">top</ToggleButton>

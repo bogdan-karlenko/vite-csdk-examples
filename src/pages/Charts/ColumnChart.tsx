@@ -12,7 +12,7 @@ const CodeExample = () => {
                     value: [
                         measureFactory.sum(DM.Commerce.Revenue, "Total Revenue")
                     ],
-                    breakBy: []
+                    breakBy: [DM.Commerce.Condition]
                 }}
             />
         </>
