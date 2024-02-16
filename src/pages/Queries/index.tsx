@@ -5,6 +5,8 @@ const Components: ComponentPageList = {
     folderName: "Queries",
     components: [
         { menuCaption: "useExecuteQuery hook", fileName: "useExecuteQuery" },
+        { menuCaption: "useExecuteQuery sorting", fileName: "useExecuteQuerySorting" },
+        { menuCaption: "useExecutePivotQuery", fileName: "useExecutePivotQuery" },
     ]
 };
 

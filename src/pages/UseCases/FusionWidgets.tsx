@@ -1,7 +1,6 @@
 import { DashboardWidget } from "@sisense/sdk-ui"
 import * as DM from '../../datamodels/sample-ecommerce'
 
-
 const CodeExample = () => {
     return (
         <>

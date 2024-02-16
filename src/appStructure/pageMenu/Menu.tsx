@@ -13,10 +13,13 @@ import { useState } from "react";
 
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const PageList = () => {
 
     const drawerWidth = 260;
+    const [isDrawerOpen, setIsDrawerOpen] = useState(!hideMenu);
     const [open, setOpen] = useState('');
     const [openAllFolders, setOpenAllFolders] = useState(false);
     const [pagesCollection, setPagesCollection] = useState(pages)
@@ -113,7 +116,7 @@ const PageList = () => {
                 }),
                 width: theme.spacing(7),
                 [theme.breakpoints.up("sm")]: {
-                    width: theme.spacing(9),
+                    width: theme.spacing(4),
                 },
             }),
         },
@@ -122,46 +125,62 @@ const PageList = () => {
     return (
         <>
             <BrowserRouter>
-                <Box sx={{ display: "flex" }}>
-                    {!hideMenu &&
-                        <Drawer
-                            variant="permanent"
-                            open={true}
-                        >
-                            <Autocomplete
-                                freeSolo={true}
-                                autoComplete={true}
-                                autoSelect={true}
-                                multiple={true}
-                                id="autocomplete-menu-list"
-                                size="small"
-                                options={filteredSearchResults()}
-                                sx={{ p: 0.5, pt: 1 }}
-                                renderInput={(params) => {
-                                    return (
-                                        <TextField
-                                            {...params}
-                                            label="Search examples"
-                                        />
-                                    )
-                                }}
-                                onChange={(event, value) => {
-                                    filteredPagesCollection(value)
-                                }}
-                                value={searchValues}
-                            />
-                            <List dense={dense} sx={{ height: '100vh' }}>
-                                <MenuListItemSimple pageName={'Home'} sx={{ pl: 0, color: "inherit" }} />
-                                {
-                                    pagesCollection.map((collection, i) => {
+                <Box id="mainBox" sx={{ display: "flex" }}>
+
+                    <Drawer
+                        variant="permanent"
+                        open={isDrawerOpen}
+                    >
+                        {!isDrawerOpen &&
+                            <>
+                                <ArrowForwardIosIcon sx={{ mt: 1, mr: 'auto', ml: 'auto' }} onClick={() => setIsDrawerOpen(true)} />
+                                <List dense={dense} sx={{ height: '100vh' }}>
+                                </List>
+                            </>
+                        }
+                        {
+                            isDrawerOpen &&
+                            <>
+                                <Autocomplete
+                                    freeSolo={true}
+                                    autoComplete={true}
+                                    autoSelect={true}
+                                    multiple={true}
+                                    id="autocomplete-menu-list"
+                                    size="small"
+                                    options={filteredSearchResults()}
+                                    sx={{ p: 0.5, pt: 1, mr: 3 }}
+                                    renderInput={(params) => {
                                         return (
-                                            <MenuSection collection={collection} key={i} />
+                                            <>
+                                                <TextField
+                                                    {...params}
+                                                    label="Search examples"
+                                                />
+                                                <ArrowBackIosNewIcon sx={{ mt: 1 }} onClick={() => setIsDrawerOpen(false)} />
+                                            </>
+
                                         )
-                                    })
-                                }
-                            </List>
-                        </Drawer>
-                    }
+                                    }}
+                                    onChange={(event, value) => {
+                                        filteredPagesCollection(value)
+                                    }}
+                                    value={searchValues}
+                                />
+                                <List dense={dense} sx={{ height: '100vh' }}>
+                                    <MenuListItemSimple pageName={'Home'} sx={{ pl: 0, color: "inherit" }} />
+                                    {
+                                        pagesCollection.map((collection, i) => {
+                                            return (
+                                                <MenuSection collection={collection} key={i} />
+                                            )
+                                        })
+                                    }
+                                </List>
+                            </>
+                        }
+
+                    </Drawer>
                     <Box
                         component="main"
                         sx={{

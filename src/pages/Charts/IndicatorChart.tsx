@@ -39,6 +39,35 @@ const CodeExample = () => {
                     skin: 2,
                 }}
             />
+
+            <IndicatorChart
+                dataSet={DM.DataSource}
+                dataOptions={{
+                    value: [
+                        measureFactory.sum(DM.Commerce.Revenue, "Total Revenue")
+                    ],
+                    max: [measureFactory.constant(125000000)]
+                }}
+                styleOptions={{
+                    indicatorComponents: {
+                        title: {
+                            shouldBeShown: true,
+                            text: 'Total Revenue',
+                        },
+                        ticks: {
+                            shouldBeShown: false,
+                        },
+                        labels: {
+                            shouldBeShown: true,
+                        },
+                    },
+                    subtype: 'indicator/gauge',
+                    skin: 2,
+                    forceTickerView: true,
+                    tickerBarHeight: 30,
+                    width: 400
+                }}
+            />
         </>
     )
 }
