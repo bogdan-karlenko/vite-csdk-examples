@@ -133,7 +133,7 @@ const PageList = () => {
                     >
                         {!isDrawerOpen &&
                             <>
-                                <ArrowForwardIosIcon sx={{ mt: 1, mr: 'auto', ml: 'auto' }} onClick={() => setIsDrawerOpen(true)} />
+                                <ArrowForwardIosIcon sx={{ mt: 2, mr: 'auto', ml: 'auto' }} onClick={() => setIsDrawerOpen(true)} />
                                 <List dense={dense} sx={{ height: 'calc(100vh - 50px)' }}>
                                 </List>
                             </>
