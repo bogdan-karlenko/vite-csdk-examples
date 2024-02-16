@@ -134,7 +134,7 @@ const PageList = () => {
                         {!isDrawerOpen &&
                             <>
                                 <ArrowForwardIosIcon sx={{ mt: 1, mr: 'auto', ml: 'auto' }} onClick={() => setIsDrawerOpen(true)} />
-                                <List dense={dense} sx={{ height: '100vh' }}>
+                                <List dense={dense} sx={{ height: 'calc(100vh - 68px)' }}>
                                 </List>
                             </>
                         }
@@ -167,7 +167,7 @@ const PageList = () => {
                                     }}
                                     value={searchValues}
                                 />
-                                <List dense={dense} sx={{ height: '100vh' }}>
+                                <List dense={dense} sx={{ height: 'calc(100vh - 68px)' }}>
                                     <MenuListItemSimple pageName={'Home'} sx={{ pl: 0, color: "inherit" }} />
                                     {
                                         pagesCollection.map((collection, i) => {
