@@ -1,7 +1,6 @@
 import { Autocomplete, Box, Collapse, Drawer as MuiDrawer, List, ListItemButton, ListItemText, TextField, styled } from "@mui/material";
 import MenuListItem, { MenuListItemSimple } from "./MenuListItem";
 
-// const hideMenu: boolean = (import.meta.env.VITE_APP_SISENSE_HIDE_MENU.toLowerCase() == 'true' ? true : false)
 const hideMenu: boolean = false
 
 import { BrowserRouter } from "react-router-dom";
