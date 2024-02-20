@@ -5,8 +5,8 @@ const CodeExample = () => {
     return (
         <>
             <DashboardWidget
-                dashboardOid="6161af2cddaad4002bed391e"
-                widgetOid="6161bef6ddaad4002bed3953"
+                dashboardOid="65a82171719e7f004018691c"
+                widgetOid="65a82171719e7f0040186924"
                 styleOptions={{
                     shadow: "Light",
                     spaceAround: "Medium",
@@ -20,8 +20,8 @@ const CodeExample = () => {
                 }}
             />
             <DashboardWidget
-                dashboardOid="6161af2cddaad4002bed391e"
-                widgetOid="6161bf6eddaad4002bed3958"
+                dashboardOid="65a82171719e7f004018691c"
+                widgetOid="65a82171719e7f004018691f"
                 styleOptions={{
                     shadow: "Light",
                     spaceAround: "Medium",
