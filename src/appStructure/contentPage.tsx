@@ -8,7 +8,7 @@ type ContentPropsType = {
 
 const ContentPage = (ContentProps: ContentPropsType) => {
     return (
-        <Container maxWidth="xl" sx={{ mt: 0, mb: 0 }}>
+        <Container maxWidth="xl" sx={{ mt: 0, mb: 4 }}>
             {ContentProps.childComponent}
         </Container>
     )
