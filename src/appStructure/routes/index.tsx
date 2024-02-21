@@ -26,9 +26,13 @@ const LoadComponent = ({ pageCaption, component: Component, filePath }: LoadComp
     }
 
     const [fileContents, setFileContents] = useState<string>('')
+    const [dmContents, setDmContents] = useState<string>('');
     LoadRawFile(filePath).then(
         (value: string) => setFileContents(value)
     )
+    LoadRawFile("../../datamodels/sample-ecommerce").then((value: string) =>
+      setDmContents(value)
+    );
 
     console.log(fileContents)
 
@@ -60,7 +64,11 @@ const LoadComponent = ({ pageCaption, component: Component, filePath }: LoadComp
                             },
                         }}
                         files={{
-                            "/App.tsx": fileContents,
+                            "/App.tsx": fileContents.replace(
+                  						"../../datamodels/sample-ecommerce",
+                  						"./sample-ecommerce"
+                						),
+                						"/sample-ecommerce.ts": dmContents,
                             'index.tsx': `import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
@@ -92,7 +100,7 @@ root.render(
     <App />
 
   </ThemeProvider>
-      
+
     </SisenseContextProvider>
   </StrictMode>
 );`,
